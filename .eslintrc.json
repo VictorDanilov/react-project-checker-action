@@ -8,6 +8,13 @@
       "project": "./tsconfig.json"
     },
     "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto",
+          "bracketSpacing": true
+        }
+      ],
       "i18n-text/no-en": "off",
       "eslint-comments/no-use": "off",
       "import/no-namespace": "off",
