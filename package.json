@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
+  "name": "react-project-checker-action",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "React project checker action",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -22,7 +22,7 @@
     "node",
     "setup"
   ],
-  "author": "",
+  "author": "Victor Danilov",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0"
