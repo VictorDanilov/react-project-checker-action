@@ -11,7 +11,7 @@ runs:
   steps:
     - name: Install React Project Checker Dependencies
       shell: bash
-      run: npm ci --prefix dist
+      run: npm ci --prefix $GITHUB_ACTION_PATH/dist
     - name: Save Code Linting Report JSON
       shell: bash
       run: node_modules/.bin/eslint --config dist/.eslintrc.cjs --output-file eslint_report.json --format json src
