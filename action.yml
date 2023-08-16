@@ -20,11 +20,11 @@ runs:
       uses: ataylorme/eslint-annotate-action@v2
       with:
         repo-token: '${{ github.token }}'
-        report-json: '$GITHUB_ACTION_PATH/eslint_report.json'
+        report-json: 'eslint_report.json'
         markdown-report-on-step-summary: true
       continue-on-error: true
     - name: Check React Project Rules
       shell: bash
-      run: 'node dist/index.js'
+      run: 'node $GITHUB_ACTION_PATH/dist/index.js'
       env:
         TOKEN: '${{ github.token }}'
