@@ -1,11 +1,30 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+name: 'React Project Checker'
+description: 'Checks a React project for bad code and leaves suggestions to fix'
+author: 'Victor Danilov'
+
+branding:
+  icon: 'check-square'
+  color: 'green'
+
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Install React Project Checker Dependencies
+      shell: bash
+      run: npm ci --prefix dist
+    - name: Save Code Linting Report JSON
+      shell: bash
+      run: node_modules/.bin/eslint --config dist/.eslintrc.cjs --output-file eslint_report.json --format json src
+      continue-on-error: true
+    - name: Annotate Code Linting Results
+      uses: ataylorme/eslint-annotate-action@v2
+      with:
+        repo-token: '${{ github.token }}'
+        report-json: 'eslint_report.json'
+        markdown-report-on-step-summary: true
+      continue-on-error: true
+    - name: Check React Project Rules
+      shell: bash
+      run: 'node dist/index.js'
+      env:
+        TOKEN: '${{ github.token }}'
