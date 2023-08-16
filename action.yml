@@ -20,7 +20,7 @@ runs:
       uses: ataylorme/eslint-annotate-action@v2
       with:
         repo-token: '${{ github.token }}'
-        report-json: '$GITHUB_ACTION_PATH/eslint_report.json'
+        report-json: 'eslint_report.json'
         markdown-report-on-step-summary: true
       continue-on-error: true
     - name: Check React Project Rules
