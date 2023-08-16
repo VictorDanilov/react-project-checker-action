@@ -1,6 +1,6 @@
 {
   "name": "react-project-checker-action",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha",
   "private": true,
   "description": "React project checker action",
   "main": "lib/main.js",
