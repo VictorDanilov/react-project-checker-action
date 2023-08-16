@@ -14,13 +14,13 @@ runs:
       run: npm ci --prefix $GITHUB_ACTION_PATH/dist
     - name: Save Code Linting Report JSON
       shell: bash
-      run: node_modules/.bin/eslint --config dist/.eslintrc.cjs --output-file eslint_report.json --format json src
+      run: $GITHUB_ACTION_PATH/node_modules/.bin/eslint --config $GITHUB_ACTION_PATH/dist/.eslintrc.cjs --output-file eslint_report.json --format json src
       continue-on-error: true
     - name: Annotate Code Linting Results
       uses: ataylorme/eslint-annotate-action@v2
       with:
         repo-token: '${{ github.token }}'
-        report-json: 'eslint_report.json'
+        report-json: '$GITHUB_ACTION_PATH/eslint_report.json'
         markdown-report-on-step-summary: true
       continue-on-error: true
     - name: Check React Project Rules
