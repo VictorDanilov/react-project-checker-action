@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['react-app', 'react-app/jest', 'prettier'],
+  extends: ['react-app', 'prettier'],
   rules: {
     'react/jsx-no-useless-fragment': 'error',
     'react/self-closing-comp': [
