@@ -14,7 +14,7 @@ runs:
       run: npm ci --prefix $GITHUB_ACTION_PATH/dist
     - name: Save Code Linting Report JSON
       shell: bash
-      run: $GITHUB_ACTION_PATH/node_modules/.bin/eslint --config $GITHUB_ACTION_PATH/dist/.eslintrc.cjs --output-file eslint_report.json --format json src
+      run: $GITHUB_ACTION_PATH/dist/node_modules/.bin/eslint --config $GITHUB_ACTION_PATH/dist/.eslintrc.cjs --output-file eslint_report.json --format json src
       continue-on-error: true
     - name: Annotate Code Linting Results
       uses: ataylorme/eslint-annotate-action@v2
