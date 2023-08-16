@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   extends: ['react-app', 'prettier'],
   rules: {
     'react/jsx-no-useless-fragment': 'error',
